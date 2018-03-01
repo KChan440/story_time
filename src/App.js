@@ -1,35 +1,70 @@
 import React, { Component } from 'react';
-import fire from './fire';
 import Question from './Question/Question';
 import SubmitForm from './SubmitForm/SubmitForm';
+import { DB_CONFIG } from './Config/config';
+import firebase from 'firebase/app';
+import 'firebase/database';
 import './App.css'
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-
-
+    this.addQuestion = this.addQuestion.bind(this);
+    
+    this.app = firebase.initializeApp(DB_CONFIG);
+    this.database = this.app.database().ref().child('questions');
 
     this.state = {
-      questions: [
-        { id: 1, questionContent: "When was the last time you tried something new?"},
-        { id: 69, questionContent: "What gives your life meaning?"},
-      ],
+      questions: [],
     }
   }
 
+  componentWillMount(){
+    const previousQuestions = this.state.questions;
+
+
+    this.database.on('child_added', snap => {
+      previousQuestions.push({
+        id: snap.key,
+        questionContent: snap.val().questionContent,
+      })
+
+      this.setState({
+        questions: previousQuestions
+      })
+    })
+
+
+  }
+
+  addQuestion(question){
+    this.database.push().set({questionContent:question});
+
+    // const previousQuestions = this.state.questions;
+    // previousQuestions.push({id: previousQuestions.length + 1, questionContent: question});
+    // this.setState({
+    //   questions: previousQuestions
+    // });
+  }
+
   render() {
-    const randomQuestion = this.state.questions[Math.floor(Math.random()*this.state.questions.length)];
+    console.log(this.state.questions);
+    console.log(this.state.questions[Math.floor(Math.random()*this.state.questions.length)])
     return (
         <div className="questionWrapper">
 
             <div className="questionBody">
               {
-                <Question questionContent={randomQuestion.questionContent}
-                          questionId={randomQuestion.questionId}
-                          key={randomQuestion.questionId}/>
+                this.state.questions.map((question) => {
+                  return (
+                    <Question questionContent={question.questionContent} 
+                    questionId={question.id} 
+                   key={question.id}/>
+                  )
+                })
               }
+
             </div>
 
             <div className="reactionBody">
@@ -37,7 +72,7 @@ class App extends Component {
             </div>
 
             <div className="submitForm">
-              <SubmitForm />
+              <SubmitForm addQuestion={this.addQuestion}/>
             </div>
         </div>
     );
