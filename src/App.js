@@ -17,6 +17,7 @@ class App extends Component {
 
     this.state = {
       questions: [],
+      currentQuestion: {}
     }
   }
 
@@ -31,11 +32,22 @@ class App extends Component {
       })
 
       this.setState({
-        questions: previousQuestions
+        questions: previousQuestions,
+        currentQuestion: this.getRandomQuestion(previousQuestions)
       })
     })
 
 
+  }
+
+  getRandomQuestion(previousQuestions){
+    var randomIndex = Math.floor(Math.random() * previousQuestions.length);
+    var question = previousQuestions[randomIndex];
+    if (question === this.state.currentQuestion){
+      this.getRandomQuestion(previousQuestions)
+    }
+
+    return(question)
   }
 
   addQuestion(question){
@@ -49,20 +61,15 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.questions);
-    console.log(this.state.questions[Math.floor(Math.random()*this.state.questions.length)])
+    
     return (
         <div className="questionWrapper">
 
             <div className="questionBody">
               {
-                this.state.questions.map((question) => {
-                  return (
-                    <Question questionContent={question.questionContent} 
-                    questionId={question.id} 
-                   key={question.id}/>
-                  )
-                })
+                    <Question questionContent={this.state.currentQuestion.questionContent} 
+                    questionId={this.state.currentQuestion.id} 
+                   key={this.state.currentQuestion.id}/>
               }
 
             </div>
