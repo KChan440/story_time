@@ -52,12 +52,6 @@ class App extends Component {
 
   addQuestion(question){
     this.database.push().set({questionContent:question});
-
-    // const previousQuestions = this.state.questions;
-    // previousQuestions.push({id: previousQuestions.length + 1, questionContent: question});
-    // this.setState({
-    //   questions: previousQuestions
-    // });
   }
 
   render() {
@@ -72,10 +66,6 @@ class App extends Component {
                    key={this.state.currentQuestion.id}/>
               }
 
-            </div>
-
-            <div className="reactionBody">
-              Like or Dislike
             </div>
 
             <div className="submitForm">
