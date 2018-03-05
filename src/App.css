@@ -1,21 +1,50 @@
-html{
-  height: 100%;
-}
+@import url("https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i");
+.link, button {
+  text-decoration: underline;
+  font-family: "Ubuntu Mono", monospace;
+  font: italic; }
+
+.bigbold, .questionBody .questionContent {
+  text-align: center;
+  color: white;
+  font-family: "Roboto", sans-serif; }
+
+html {
+  height: 100%; }
 
 body {
   width: 100%;
-  min-height:100%;
+  min-height: 100%;
   background-attachment: fixed;
   background-size: cover;
-}
+  background-color: red; }
 
-.questionBody{
-	position: absolute;
-    width: 100px;
-    height: 20%;
-    top: 50%;
-    left: 50%;
-    margin-left: -50px; /* margin is -0.5 * dimension */
-    margin-top: -25px; 
-	background-color: red;
-}
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+  text-align: center; }
+
+.questionBody {
+  width: 68%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; }
+  .questionBody .questionContent {
+    font-size: 4em; }
+
+.submitForm {
+  position: fixed;
+  bottom: 1em;
+  left: 50%;
+  margin-left: -50px;
+  /* margin is -0.5 * dimension */ }
+
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i');
+$sans-serif: 'Roboto', sans-serif;
+$mono-space:'Ubuntu Mono', monospace;
+
+.link{
+    text-decoration: underline;
+    font-family: $mono-space;
+    font: italic;
+}
+
+.bigbold{
+    text-align: center;
+    color: white;
+    font-family: $sans-serif;
+}
+
+html{
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height:100%;
+  background-attachment: fixed;
+  background-size: cover;
+    background-color: red;
+}
+
+button{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+    
+    text-align: center;
+    @extend .link;
+}
+
+.questionBody{
+    width: 68%;
+	height: 50%;
+	//background-color: green;
+
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	margin: auto;
+    
+    .questionContent{
+        font-size: 4em;
+        @extend .bigbold;
+    }
+}
+
+.submitForm{
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    margin-left: -50px; /* margin is -0.5 * dimension */
+
+}

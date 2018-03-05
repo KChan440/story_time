@@ -58,6 +58,11 @@ class App extends Component {
     
     return (
         <div className="questionWrapper">
+            <button class="hamburger" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
 
             <div className="questionBody">
               {
