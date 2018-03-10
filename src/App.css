@@ -17,13 +17,16 @@ body {
   min-height: 100%;
   background-attachment: fixed;
   background-size: cover;
-  background-color: red; }
+  background-color: red;
+  font-family: "Ubuntu Mono", monospace; }
+  body input {
+    font-family: inherit; }
 
 button {
   background: none;
   color: inherit;
   border: none;
-  padding: 0;
+  padding: 10px;
   cursor: pointer;
   outline: inherit;
   text-align: center; }
