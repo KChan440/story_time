@@ -8,7 +8,8 @@
     "hamburgers": "^0.9.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "sass": "^1.0.0-beta.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,5 +17,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "firebase deploy"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.7"
   }
 }

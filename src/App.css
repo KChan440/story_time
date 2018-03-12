@@ -4,7 +4,7 @@
   font-family: "Ubuntu Mono", monospace;
   font: italic; }
 
-.bigbold, .questionBody .questionContent {
+.bigbold, .questionWrapper .questionContent {
   text-align: center;
   color: white;
   font-family: "Roboto", sans-serif; }
@@ -17,7 +17,7 @@ body {
   min-height: 100%;
   background-attachment: fixed;
   background-size: cover;
-  background-color: red; }
+  background-color: blue; }
 
 button {
   background: none;
@@ -28,7 +28,21 @@ button {
   outline: inherit;
   text-align: center; }
 
-.questionBody {
+.like-or-dislike {
+  display: flex;
+  justify-content: center; }
+
+.thumb-up {
+  font-size: 3em;
+  width: 3em;
+  height: 3em; }
+
+.thumb-down {
+  font-size: 3em;
+  width: 3em;
+  height: 3em; }
+
+.questionWrapper {
   width: 68%;
   height: 50%;
   position: absolute;
@@ -37,7 +51,7 @@ button {
   left: 0;
   right: 0;
   margin: auto; }
-  .questionBody .questionContent {
+  .questionWrapper .questionContent {
     font-size: 4em; }
 
 .submitForm {
@@ -46,5 +60,3 @@ button {
   left: 50%;
   margin-left: -50px;
   /* margin is -0.5 * dimension */ }
-
-/*# sourceMappingURL=App.css.map */

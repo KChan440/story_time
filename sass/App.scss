@@ -23,8 +23,9 @@ body {
   min-height:100%;
   background-attachment: fixed;
   background-size: cover;
-    background-color: red;
+  background-color: blue;
 }
+
 
 button{
     background: none;
@@ -38,7 +39,26 @@ button{
     @extend .link;
 }
 
-.questionBody{
+.like-or-dislike{
+	display: flex;
+	justify-content: center;
+}
+
+.thumb-up{
+	font-size: 3em;
+	width: 3em;
+	height: 3em;
+}
+
+
+.thumb-down{
+	font-size: 3em;
+	width: 3em;
+	height: 3em;
+
+}
+
+.questionWrapper{
     width: 68%;
 	height: 50%;
 	//background-color: green;
