@@ -14,7 +14,6 @@ $mono-space:'Ubuntu Mono', monospace;
     font-family: $sans-serif;
 }
 
-//================
 
 
 html{
@@ -26,17 +25,12 @@ body {
   min-height:100%;
   background-attachment: fixed;
   background-size: cover;
-<<<<<<< HEAD
-  background-color: blue;
-=======
-    background-color: red;
     font-family: $mono-space;
     
     input {
         font-family: inherit;
     }
 
->>>>>>> 50f30ec1459bef2ae7f47ec56ebff9ae872d9d74
 }
 
 
@@ -61,6 +55,7 @@ button{
 	font-size: 3em;
 	width: 3em;
 	height: 3em;
+	margin-right: 10%;
 }
 
 
@@ -68,6 +63,7 @@ button{
 	font-size: 3em;
 	width: 3em;
 	height: 3em;
+	margin-left: 10%;
 
 }
 

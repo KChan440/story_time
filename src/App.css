@@ -17,14 +17,9 @@ body {
   min-height: 100%;
   background-attachment: fixed;
   background-size: cover;
-<<<<<<< HEAD
-  background-color: blue; }
-=======
-  background-color: red;
   font-family: "Ubuntu Mono", monospace; }
   body input {
     font-family: inherit; }
->>>>>>> 50f30ec1459bef2ae7f47ec56ebff9ae872d9d74
 
 button {
   background: none;
@@ -42,12 +37,14 @@ button {
 .thumb-up {
   font-size: 3em;
   width: 3em;
-  height: 3em; }
+  height: 3em;
+  margin-right: 10%; }
 
 .thumb-down {
   font-size: 3em;
   width: 3em;
-  height: 3em; }
+  height: 3em;
+  margin-left: 10%; }
 
 .questionWrapper {
   width: 68%;
