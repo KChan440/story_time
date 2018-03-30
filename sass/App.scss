@@ -2,6 +2,10 @@
 $sans-serif: 'Roboto', sans-serif;
 $mono-space:'Ubuntu Mono', monospace;
 
+.thumb-down, .thumb-up {
+    color: white;
+}
+
 .link{
     text-decoration: underline;
     font-family: $mono-space;
@@ -13,8 +17,6 @@ $mono-space:'Ubuntu Mono', monospace;
     color: white;
     font-family: $sans-serif;
 }
-
-
 
 html{
   height: 100%;
@@ -30,7 +32,6 @@ body {
     input {
         font-family: inherit;
     }
-
 }
 
 

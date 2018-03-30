@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   componentWillMount(){
-    const colors = ["red", "green", "blue", "purple", "yellow", "brown"];
+    const colors = ["#D0021B","#F5A623","#7ED321","#50E3C2","#4A90E2","#9013FE"];
     const randomIndex = Math.floor(Math.random() * colors.length);
 
     document.body.style.backgroundColor = colors[randomIndex];;
@@ -92,8 +92,9 @@ class App extends Component {
         key={this.state.currentQuestion.id}/>
       }
       <div className="like-or-dislike">
-      <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i></button>
       <button className="thumb-down" onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
+      <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i></button>
+      
       </div>
       </div>
 
