@@ -67,7 +67,7 @@ class App extends Component {
   likeQuestion(question){
     const tempID = this.state.currentQuestion.id; 
     const questionRef = firebase.database().ref("questions/" + tempID + "/likes");
-    console.log(questionRef);
+    //console.log(questionRef);
     questionRef.transaction(function (current_value) {
       return (current_value || 0) + 1;
     });
