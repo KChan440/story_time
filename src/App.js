@@ -28,6 +28,10 @@ class App extends Component {
 
     document.body.style.backgroundColor = colors[randomIndex];;
 
+    document.body.addEventListener("click", function(){
+        window.location.reload();
+    });
+      
     const previousQuestions = this.state.questions;
     this.database.on('child_added', snap => {
         previousQuestions.push({
@@ -39,7 +43,7 @@ class App extends Component {
           questions: previousQuestions,
           currentQuestion: this.getRandomQuestion(previousQuestions)
        })
-        console.log(this.state.questions);
+        //console.log(this.state.questions);
       })
   }
 
@@ -84,6 +88,7 @@ class App extends Component {
   render() {
 
     return (
+        
       <div className="questionWrapper">
       <div className="questionBody">
       {
