@@ -25,12 +25,12 @@ class App extends Component {
   componentWillMount(){
     const colors = ["#D0021B","#F5A623","#7ED321","#50E3C2","#4A90E2","#9013FE"];
     const randomIndex = Math.floor(Math.random() * colors.length);
-
+    document.title = "tmayl.";
     document.body.style.backgroundColor = colors[randomIndex];;
 
-    document.body.addEventListener("click", function(){
-        window.location.reload();
-    });
+//    document.body.addEventListener("click", function(){
+//        window.location.reload();
+//    });
       
     const previousQuestions = this.state.questions;
     this.database.on('child_added', snap => {
@@ -88,7 +88,6 @@ class App extends Component {
   render() {
 
     return (
-        
       <div className="questionWrapper">
       <div className="questionBody">
       {
@@ -98,14 +97,20 @@ class App extends Component {
       }
       <div className="like-or-dislike">
       <button className="thumb-down" onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
-      <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i></button>
-      
+      <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i>
+        </button>
       </div>
       </div>
 
       <div className="submitForm">
       <SubmitForm addQuestion={this.addQuestion}/>
       </div>
+        
+        <div className="info" href="#"><button>i</button></div>
+        <div className="menu">
+            <h2>About</h2>
+            <p>TMAYL is an open source project created to help make meaningful conversations. We hope that together, we can facilitate meaningful connections with those around us.</p>
+        </div>
       </div>
     );
   }

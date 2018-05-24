@@ -20,7 +20,8 @@ body {
   min-height: 100%;
   background-attachment: fixed;
   background-size: cover;
-  font-family: "Ubuntu Mono", monospace; }
+  font-family: "Ubuntu Mono", monospace;
+  color: white; }
   body input {
     font-family: inherit; }
 
@@ -67,5 +68,19 @@ button {
   left: 50%;
   margin-left: -50px;
   /* margin is -0.5 * dimension */ }
+
+.info {
+  position: fixed;
+  top: 0;
+  right: 0; }
+
+.menu {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  right: 0; }
 
 /*# sourceMappingURL=App.css.map */

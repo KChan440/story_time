@@ -1,11 +1,14 @@
 run locally with npm start.
 
+## Issues
+- [ ] submission logic, null string :)))
+- [ ] click event listerner too sensitive, find alternatives
+- [ ] side menu
+- [ ] thumbs images
 
 ## Fancy TODO
-- [ ] submission logic, null string :)))
-- [ ] *D E P L O Y*
+- [x] *D E P L O Y*
 - [ ] like & dislike & scoring
-- [ ] add menu for description
-- [ ] color change on new question
+- [x] color change on new question
 - [ ] prettier submission??
 - [ ] profile system
