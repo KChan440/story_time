@@ -18,13 +18,15 @@ class SubmitForm extends Component{
     }
 
     writeQuestion(){
-        //call method that sets questionContent for question to
-        //value of input
-        this.props.addQuestion(this.state.newQuestionContent);
-        //set back to empty string after add.
-        this.setState({
-            newQuestionContent: '',
-        })
+        if(this.state.newQuestionContent && this.state.newQuestionContent.trim()){
+            //call method that sets questionContent for question to
+            //value of input
+            this.props.addQuestion(this.state.newQuestionContent);
+            //set back to empty string after add.
+            this.setState({
+                newQuestionContent: '',
+            })
+        }
     }
     render(){
         return(

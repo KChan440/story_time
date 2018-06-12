@@ -1,7 +1,7 @@
 run locally with npm start.
 
 ## Issues
-- [ ] submission logic, null string :)))
+- [x] submission logic, null string :)))
 - [ ] click event listerner too sensitive, find alternatives
 - [ ] side menu
 - [ ] thumbs images
