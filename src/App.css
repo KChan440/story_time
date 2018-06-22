@@ -25,6 +25,7 @@ body {
   body input {
     font-family: inherit; }
   body a {
+    color: white;
     text-decoration: underline;
     font-style: italic; }
 
@@ -85,6 +86,9 @@ button {
   height: 100vh;
   top: 0;
   right: 0; }
+  @media screen and (min-width: 425px) and (min-height: 425px) {
+    .menu {
+      width: 20em; } }
 
 .caption {
   position: fixed;
@@ -98,8 +102,13 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -80%);
-    width: 80vw;
+    width: 80%;
     text-align: center; }
+  @media screen and (min-width: 425px) and (min-height: 425px) {
+    .caption {
+      width: 20em; }
+      .caption-inner {
+        width: 70%; } }
 
 .menu {
   opacity: 0;
@@ -107,10 +116,17 @@ button {
   .menu-enter, .menu-exit-done {
     opacity: 0;
     transform: translateY(-50%); }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .menu-enter, .menu-exit-done {
+        opacity: 0.6;
+        transform: translateX(80%); } }
   .menu-enter-active, .menu-enter-done, .menu-exit {
     opacity: 1;
     visibility: visible;
     transform: translateY(0%); }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .menu-enter-active, .menu-enter-done, .menu-exit {
+        transform: translateX(0%); } }
   .menu-exit-done, .menu-enter-active {
     transition: all 200ms ease-in; }
 
@@ -119,11 +135,16 @@ button {
   visibility: hidden; }
   .caption-enter, .caption-exit-done {
     opacity: 0; }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .caption-enter, .caption-exit-done {
+        transform: translateX(80%); } }
   .caption-enter-active, .caption-enter-done, .caption-exit {
     opacity: 1;
     visibility: visible; }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .caption-enter-active, .caption-enter-done, .caption-exit {
+        transform: translateX(0%); } }
   .caption-exit-done, .caption-enter-active {
-    transition: opacity 150ms ease-in;
-    transition-delay: 50ms; }
+    transition: all 200ms ease-in; }
 
 /*# sourceMappingURL=App.css.map */

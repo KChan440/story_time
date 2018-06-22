@@ -3,7 +3,7 @@ run locally with npm start.
 ## Issues
 - [x] submission logic, null string :)))
 - [ ] click event listerner too sensitive, find alternatives
-- [ ] side menu
+- [x] side menu
 - [ ] thumbs images
 
 ## Fancy TODO

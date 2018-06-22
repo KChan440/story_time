@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i');
 $sans-serif: 'Roboto', sans-serif;
 $mono-space:'Ubuntu Mono', monospace;
-$not-mobile: screen and (min-width:732px);
+
+$tablet: "screen and (min-width:425px) and (min-height:425px)";
+$menu-max-width : 20em;
 
 .thumb-down, .thumb-up {
     color: white;
@@ -36,6 +38,7 @@ body {
     }
     
     a {
+        color: white;
         text-decoration: underline;
         font-style: italic;
     }
@@ -117,7 +120,9 @@ button{
     width: 100vw; height: 100vh;
     top: 0; right: 0;
     
-    
+    @media #{$tablet}{
+        width: $menu-max-width;
+    }
 }
 
  .caption {
@@ -130,9 +135,14 @@ button{
         position: absolute;
         top: 50%; left: 50%;
         transform: translate(-50%,-80%);
-        width: 80vw;
+        width: 80%;
         text-align: center;
      }
+     
+    @media #{$tablet}{
+        width: $menu-max-width;
+        &-inner{width: 70%};
+    }
 }
 
 .menu {
@@ -142,12 +152,20 @@ button{
     &-enter,&-exit-done {
         opacity: 0;
         transform: translateY(-50%);
+        
+        @media #{$tablet}{
+            opacity: 0.6;
+            transform: translateX(80%);
+        }
     }
     
     &-enter-active,&-enter-done,&-exit{
         opacity: 1;
         visibility: visible;
         transform: translateY(0%);
+        @media #{$tablet}{
+            transform: translateX(0%);
+        }
     }
 
     &-exit-done, &-enter-active {
@@ -161,15 +179,20 @@ button{
     
     &-enter,&-exit-done {
         opacity: 0;
+        @media #{$tablet}{
+            transform: translateX(80%);
+        }
     }
     
     &-enter-active,&-enter-done,&-exit{
         opacity: 1;
         visibility: visible;
+        @media #{$tablet}{
+            transform: translateX(0%);
+        }
     }
 
     &-exit-done, &-enter-active {
-      transition: opacity 150ms ease-in;
-    transition-delay: 50ms;
+      transition: all 200ms ease-in;
     }
 }
