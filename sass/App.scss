@@ -62,20 +62,26 @@ button{
 	justify-content: center;
 }
 
-.thumb-up{
-	font-size: 3em;
+.thumb-up, .thumb-down{
+    font-size: 3em;
 	width: 3em;
 	height: 3em;
+    transition-duration: 100ms;
+    &:hover{
+        opacity: 0.8;
+        &:active{
+//            -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+//            -moz-box-shadow:    inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+//            box-shadow:         inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+}
+.thumb-up{
 	margin-right: 10%;
 }
-
-
 .thumb-down{
-	font-size: 3em;
-	width: 3em;
-	height: 3em;
 	margin-left: 10%;
-
 }
 
 .questionWrapper{
@@ -101,8 +107,12 @@ button{
     position: fixed;
     bottom: 1em;
     left: 50%;
-    margin-left: -50px; /* margin is -0.5 * dimension */
-
+    transform: translateX(-50%);
+    
+    .submitButton{
+        padding: initial;
+        margin-left: 10px;
+    }
 }
 
 .info {
@@ -110,7 +120,6 @@ button{
     top: 0;
     right: 0;
 }
-
 
 
 .menu {
@@ -125,7 +134,7 @@ button{
     }
 }
 
- .caption {
+.caption {
     position: fixed;
     width: 100vw; height: 100vh;
     top: 0; right: 0;

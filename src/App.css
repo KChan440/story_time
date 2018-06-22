@@ -42,16 +42,18 @@ button {
   display: flex;
   justify-content: center; }
 
-.thumb-up {
+.thumb-up, .thumb-down {
   font-size: 3em;
   width: 3em;
   height: 3em;
+  transition-duration: 100ms; }
+  .thumb-up:hover, .thumb-down:hover {
+    opacity: 0.8; }
+
+.thumb-up {
   margin-right: 10%; }
 
 .thumb-down {
-  font-size: 3em;
-  width: 3em;
-  height: 3em;
   margin-left: 10%; }
 
 .questionWrapper {
@@ -70,8 +72,10 @@ button {
   position: fixed;
   bottom: 1em;
   left: 50%;
-  margin-left: -50px;
-  /* margin is -0.5 * dimension */ }
+  transform: translateX(-50%); }
+  .submitForm .submitButton {
+    padding: initial;
+    margin-left: 10px; }
 
 .info {
   position: fixed;
