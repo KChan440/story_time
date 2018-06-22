@@ -28,10 +28,6 @@ class App extends Component {
     const randomIndex = Math.floor(Math.random() * colors.length);
     document.title = "tmayl.";
     document.body.style.backgroundColor = colors[randomIndex];;
-
-//    document.body.addEventListener("click", function(){
-//        window.location.reload();
-//    });
       
     const previousQuestions = this.state.questions;
     this.database.on('child_added', snap => {
@@ -84,17 +80,22 @@ class App extends Component {
     this.componentWillMount();
   }
 
-
+    componentDidMount(){
+        document.getElementById("questionBody").addEventListener("click", function(){
+            window.location.reload();
+        });        
+    }
 
   render() {
 
     return (
       <div className="questionWrapper">
-      <div className="questionBody">
+      <div className="questionBody" id="questionBody">
       {
         <Question questionContent={this.state.currentQuestion.questionContent} 
         questionId={this.state.currentQuestion.id} 
-        key={this.state.currentQuestion.id}/>
+        key={this.state.currentQuestion.id}
+        />
       }
       <div className="like-or-dislike">
       <button className="thumb-down" onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
