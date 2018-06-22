@@ -7,36 +7,39 @@ class Menu extends Component{
     constructor(props){
         super(props);
         this.toggle = this.toggle.bind(this);
-        this.state = { active : false };
+        this.state = { isOpen : false };
     }
     
     toggle(){
-        this.setState({ active : !this.state.active });
+        this.setState({ isOpen : !this.state.isOpen });
     }
     
     render(){
-        var active = this.state.active;
-                console.log(this.state.active);
+        var isOpen = this.state.isOpen;
+                console.log(this.state.isOpen);
 
         return (<span>
-            <button className={"hamburger hamburger--squeeze "+(active&&"is-active")} id="menubutton" type="button" onClick={this.toggle} unmountOnExit>
+            <button className={"hamburger hamburger--squeeze "+(isOpen&&"is-isOpen")} id="menubutton" type="button" onClick={this.toggle}>
               <span className="hamburger-box">
                 <span className="hamburger-inner"></span>
               </span>
             </button>
                 
-            <CSSTransition classNames="menu" timeout={200} in={active} onEnter={()=>console.log("called")}>
-                    <div className="menu">
-                        <div className="caption">
-                            <h2>About</h2>
-                            <p>TMAYL is an open source project created to help make meaningful conversations. We hope that together, we can facilitate meaningful connections with those around us.</p>
-                            <hr/>
-                            <p><a href="#">Inquiry</a> | <a href="https://github.com/KChan440/story_time">Github</a></p>
-                        </div>
-                    </div>
+
+            <CSSTransition classNames="caption" timeout={200} in={isOpen} >
+                <div className="caption">
+                    <div className="caption-inner">
+                        <h2>About</h2>
+                        <p>TMAYL is an open source project created to help make meaningful conversations. We hope that together, we can facilitate meaningful connections with those around us.</p>
+                        <hr/>
+                        <p><a href="#">Inquiry</a> | <a href="https://github.com/KChan440/story_time">Github</a></p>
+                </div></div>
             </CSSTransition>
                 
-
+            <CSSTransition classNames="menu" timeout={200} in={isOpen} >
+                    <div className="menu"></div>
+            </CSSTransition>
+                
     </span>);
 }
 }

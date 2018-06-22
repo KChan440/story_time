@@ -85,7 +85,15 @@ button {
   height: 100vh;
   top: 0;
   right: 0; }
-  .menu .caption {
+
+.caption {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  z-index: 2; }
+  .caption-inner {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -94,20 +102,28 @@ button {
     text-align: center; }
 
 .menu {
-  opacity: 0; }
+  opacity: 0;
+  visibility: hidden; }
   .menu-enter, .menu-exit-done {
     opacity: 0;
     transform: translateY(-50%); }
-    .menu-enter .caption, .menu-exit-done .caption {
-      opacity: 0; }
   .menu-enter-active, .menu-enter-done, .menu-exit {
     opacity: 1;
+    visibility: visible;
     transform: translateY(0%); }
-    .menu-enter-active .caption, .menu-enter-done .caption, .menu-exit .caption {
-      opacity: 1; }
   .menu-exit-done, .menu-enter-active {
     transition: all 200ms ease-in; }
-    .menu-exit-done .caption, .menu-enter-active .caption {
-      transition: all 200ms ease-in; }
+
+.caption {
+  opacity: 0;
+  visibility: hidden; }
+  .caption-enter, .caption-exit-done {
+    opacity: 0; }
+  .caption-enter-active, .caption-enter-done, .caption-exit {
+    opacity: 1;
+    visibility: visible; }
+  .caption-exit-done, .caption-enter-active {
+    transition: opacity 150ms ease-in;
+    transition-delay: 50ms; }
 
 /*# sourceMappingURL=App.css.map */

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i');
 $sans-serif: 'Roboto', sans-serif;
 $mono-space:'Ubuntu Mono', monospace;
+$not-mobile: screen and (min-width:732px);
 
 .thumb-down, .thumb-up {
     color: white;
@@ -116,32 +117,59 @@ button{
     width: 100vw; height: 100vh;
     top: 0; right: 0;
     
-    .caption {
+    
+}
+
+ .caption {
+    position: fixed;
+    width: 100vw; height: 100vh;
+    top: 0; right: 0;
+    z-index: 2;
+     
+     &-inner{
         position: absolute;
         top: 50%; left: 50%;
         transform: translate(-50%,-80%);
         width: 80vw;
         text-align: center;
-    }
+     }
 }
 
 .menu {
     opacity: 0;
+    visibility: hidden;
     
     &-enter,&-exit-done {
         opacity: 0;
         transform: translateY(-50%);
-        .caption {opacity: 0;}
     }
     
     &-enter-active,&-enter-done,&-exit{
         opacity: 1;
+        visibility: visible;
         transform: translateY(0%);
-        .caption {opacity: 1;}
     }
 
     &-exit-done, &-enter-active {
       transition: all 200ms ease-in;
-        .caption{ transition: all 200ms ease-in;}
+    }
+}
+
+.caption {
+    opacity: 0;
+    visibility: hidden;
+    
+    &-enter,&-exit-done {
+        opacity: 0;
+    }
+    
+    &-enter-active,&-enter-done,&-exit{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &-exit-done, &-enter-active {
+      transition: opacity 150ms ease-in;
+    transition-delay: 50ms;
     }
 }
