@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Question from './Question/Question';
 import SubmitForm from './SubmitForm/SubmitForm';
+import Menu from './Menu/Menu'
 import { DB_CONFIG } from './Config/config';
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -106,11 +107,7 @@ class App extends Component {
       <SubmitForm addQuestion={this.addQuestion}/>
       </div>
         
-        <div className="info" href="#"><button>i</button></div>
-        <div className="menu">
-            <h2>About</h2>
-            <p>TMAYL is an open source project created to help make meaningful conversations. We hope that together, we can facilitate meaningful connections with those around us.</p>
-        </div>
+        <div className="info" href="#"><Menu /></div>
       </div>
     );
   }

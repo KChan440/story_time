@@ -33,6 +33,11 @@ body {
     input {
         font-family: inherit;
     }
+    
+    a {
+        text-decoration: underline;
+        font-style: italic;
+    }
 }
 
 
@@ -102,12 +107,41 @@ button{
     right: 0;
 }
 
+
+
 .menu {
     display: block;
-    background-color: rgba(0,0,0,0.2);
-    height: 100%;
-    width: 200px;
+    background-color: rgba(0,0,0,0.8);
     position: fixed;
-    top: 0;
-    right: 0;
+    width: 100vw; height: 100vh;
+    top: 0; right: 0;
+    
+    .caption {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%,-80%);
+        width: 80vw;
+        text-align: center;
+    }
+}
+
+.menu {
+    opacity: 0;
+    
+    &-enter,&-exit-done {
+        opacity: 0;
+        transform: translateY(-50%);
+        .caption {opacity: 0;}
+    }
+    
+    &-enter-active,&-enter-done,&-exit{
+        opacity: 1;
+        transform: translateY(0%);
+        .caption {opacity: 1;}
+    }
+
+    &-exit-done, &-enter-active {
+      transition: all 200ms ease-in;
+        .caption{ transition: all 200ms ease-in;}
+    }
 }

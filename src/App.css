@@ -24,6 +24,9 @@ body {
   color: white; }
   body input {
     font-family: inherit; }
+  body a {
+    text-decoration: underline;
+    font-style: italic; }
 
 button {
   background: none;
@@ -76,11 +79,35 @@ button {
 
 .menu {
   display: block;
-  background-color: rgba(0, 0, 0, 0.2);
-  height: 100%;
-  width: 200px;
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   right: 0; }
+  .menu .caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    width: 80vw;
+    text-align: center; }
+
+.menu {
+  opacity: 0; }
+  .menu-enter, .menu-exit-done {
+    opacity: 0;
+    transform: translateY(-50%); }
+    .menu-enter .caption, .menu-exit-done .caption {
+      opacity: 0; }
+  .menu-enter-active, .menu-enter-done, .menu-exit {
+    opacity: 1;
+    transform: translateY(0%); }
+    .menu-enter-active .caption, .menu-enter-done .caption, .menu-exit .caption {
+      opacity: 1; }
+  .menu-exit-done, .menu-enter-active {
+    transition: all 200ms ease-in; }
+    .menu-exit-done .caption, .menu-enter-active .caption {
+      transition: all 200ms ease-in; }
 
 /*# sourceMappingURL=App.css.map */
