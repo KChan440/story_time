@@ -85,20 +85,17 @@ button{
 }
 
 .questionWrapper{
-    width: 68%;
-	height: 50%;
-	//background-color: green;
-
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	
-	margin: auto;
+    height: 100vh;
+    width: 100wv;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.questionBody{
+    width: 80vw;
     
-    .questionContent{
-        font-size: 4em;
+    .question{
+        font-size: 3em;
         @extend .bigbold;
     }
 }

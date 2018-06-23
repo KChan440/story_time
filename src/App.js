@@ -90,25 +90,24 @@ class App extends Component {
 
     return (
       <div className="questionWrapper">
-      <div className="questionBody" id="questionBody">
-      {
-        <Question questionContent={this.state.currentQuestion.questionContent} 
-        questionId={this.state.currentQuestion.id} 
-        key={this.state.currentQuestion.id}
-        />
-      }
-      <div className="like-or-dislike">
-      <button className="thumb-down" onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
-      <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i>
-        </button>
-      </div>
-      </div>
+          <div className="questionBody" id="questionBody">{
+            <Question questionContent={this.state.currentQuestion.questionContent} 
+            questionId={this.state.currentQuestion.id} 
+            key={this.state.currentQuestion.id}
+            />}
+              
+            <div className="like-or-dislike">
+              <button className="thumb-down" onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
+              <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i>
+                </button>
+              </div>
+        </div>
 
-      <div className="submitForm">
-      <SubmitForm addQuestion={this.addQuestion}/>
-      </div>
+          <div className="submitForm">
+            <SubmitForm addQuestion={this.addQuestion}/>
+          </div>
         
-        <div className="info" href="#"><Menu /></div>
+            <div className="info" href="#"><Menu /></div>
       </div>
     );
   }

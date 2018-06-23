@@ -5,6 +5,7 @@ run locally with npm start.
 - [x] click event listerner too sensitive, find alternatives
 - [x] side menu
 - [ ] thumbs images
+- [ ] text size on question char count
 
 ## Fancy TODO
 - [x] *D E P L O Y*
