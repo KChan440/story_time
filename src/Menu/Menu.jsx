@@ -16,10 +16,9 @@ class Menu extends Component{
     
     render(){
         var isOpen = this.state.isOpen;
-                console.log(this.state.isOpen);
 
         return (<span>
-            <button className={"hamburger hamburger--squeeze "+(isOpen&&"is-isOpen")} id="menubutton" type="button" onClick={this.toggle}>
+            <button className={"hamburger hamburger--squeeze "+(isOpen && "is-active")} id="menubutton" type="button" onClick={this.toggle}>
               <span className="hamburger-box">
                 <span className="hamburger-inner"></span>
               </span>
