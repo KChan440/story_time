@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i");
+.flex-center, .questionWrapper, .submitModalOverlay, .submitModalOverlay .submitModal {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 .thumb-down, .thumb-up {
   color: white; }
 
@@ -22,7 +27,7 @@ body {
   background-size: cover;
   font-family: "Ubuntu Mono", monospace;
   color: white; }
-  body input {
+  body textarea {
     font-family: inherit; }
   body a {
     color: white;
@@ -58,10 +63,7 @@ button {
 
 .questionWrapper {
   height: 100vh;
-  width: 100wv;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+  width: 100wv; }
 
 .questionBody {
   width: 80vw; }
@@ -73,9 +75,41 @@ button {
   bottom: 1em;
   left: 50%;
   transform: translateX(-50%); }
-  .submitForm .submitButton {
-    padding: initial;
-    margin-left: 10px; }
+
+.questionInput {
+  box-sizing: border-box;
+  display: block;
+  height: 20vh;
+  width: 70vw;
+  border-radius: 2px;
+  padding: 5px; }
+
+.submitButton {
+  padding-top: 5vh; }
+
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px; }
+
+.submitModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw; }
+  .submitModalOverlay .submitModal {
+    position: relative;
+    height: 50vh;
+    width: 85vw;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column; }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .submitModalOverlay .submitModal {
+        height: 50vh;
+        width: 60vw; } }
 
 .info {
   position: fixed;
