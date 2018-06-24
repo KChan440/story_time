@@ -2,9 +2,10 @@ run locally with npm start.
 
 ## Issues
 - [x] submission logic, null string :)))
-- [ ] click event listerner too sensitive, find alternatives
-- [ ] side menu
+- [x] click event listerner too sensitive, find alternatives
+- [x] side menu
 - [ ] thumbs images
+- [ ] text size on question char count
 
 ## Fancy TODO
 - [x] *D E P L O Y*

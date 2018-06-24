@@ -7,7 +7,7 @@
   font-family: "Ubuntu Mono", monospace;
   font: italic; }
 
-.bigbold, .questionWrapper .questionContent {
+.bigbold, .questionBody .question {
   text-align: center;
   color: white;
   font-family: "Roboto", sans-serif; }
@@ -24,6 +24,10 @@ body {
   color: white; }
   body input {
     font-family: inherit; }
+  body a {
+    color: white;
+    text-decoration: underline;
+    font-style: italic; }
 
 button {
   background: none;
@@ -38,36 +42,40 @@ button {
   display: flex;
   justify-content: center; }
 
-.thumb-up {
+.thumb-up, .thumb-down {
   font-size: 3em;
   width: 3em;
   height: 3em;
+  transition-duration: 100ms; }
+  .thumb-up:hover, .thumb-down:hover {
+    opacity: 0.8; }
+
+.thumb-up {
   margin-right: 10%; }
 
 .thumb-down {
-  font-size: 3em;
-  width: 3em;
-  height: 3em;
   margin-left: 10%; }
 
 .questionWrapper {
-  width: 68%;
-  height: 50%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto; }
-  .questionWrapper .questionContent {
-    font-size: 4em; }
+  height: 100vh;
+  width: 100wv;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.questionBody {
+  width: 80vw; }
+  .questionBody .question {
+    font-size: 3em; }
 
 .submitForm {
   position: fixed;
   bottom: 1em;
   left: 50%;
-  margin-left: -50px;
-  /* margin is -0.5 * dimension */ }
+  transform: translateX(-50%); }
+  .submitForm .submitButton {
+    padding: initial;
+    margin-left: 10px; }
 
 .info {
   position: fixed;
@@ -76,11 +84,71 @@ button {
 
 .menu {
   display: block;
-  background-color: rgba(0, 0, 0, 0.2);
-  height: 100%;
-  width: 200px;
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   right: 0; }
+  @media screen and (min-width: 425px) and (min-height: 425px) {
+    .menu {
+      width: 20em; } }
+
+.caption {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  z-index: 2; }
+  .caption-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    width: 80%;
+    text-align: center; }
+  @media screen and (min-width: 425px) and (min-height: 425px) {
+    .caption {
+      width: 20em; }
+      .caption-inner {
+        width: 70%; } }
+
+.menu {
+  opacity: 0;
+  visibility: hidden; }
+  .menu-enter, .menu-exit-done {
+    opacity: 0;
+    transform: translateY(-50%); }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .menu-enter, .menu-exit-done {
+        opacity: 0.6;
+        transform: translateX(80%); } }
+  .menu-enter-active, .menu-enter-done, .menu-exit {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%); }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .menu-enter-active, .menu-enter-done, .menu-exit {
+        transform: translateX(0%); } }
+  .menu-exit-done, .menu-enter-active {
+    transition: all 200ms ease-in; }
+
+.caption {
+  opacity: 0;
+  visibility: hidden; }
+  .caption-enter, .caption-exit-done {
+    opacity: 0; }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .caption-enter, .caption-exit-done {
+        transform: translateX(80%); } }
+  .caption-enter-active, .caption-enter-done, .caption-exit {
+    opacity: 1;
+    visibility: visible; }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .caption-enter-active, .caption-enter-done, .caption-exit {
+        transform: translateX(0%); } }
+  .caption-exit-done, .caption-enter-active {
+    transition: all 200ms ease-in; }
 
 /*# sourceMappingURL=App.css.map */

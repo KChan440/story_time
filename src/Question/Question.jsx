@@ -13,7 +13,7 @@ class Question extends Component{
     render(props){
         return(
             <div className="question">
-                <p className="questionContent">{ this.questionContent }</p>
+                { this.questionContent }
             </div>
         )
     }

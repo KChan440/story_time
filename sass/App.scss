@@ -2,6 +2,9 @@
 $sans-serif: 'Roboto', sans-serif;
 $mono-space:'Ubuntu Mono', monospace;
 
+$tablet: "screen and (min-width:425px) and (min-height:425px)";
+$menu-max-width : 20em;
+
 .thumb-down, .thumb-up {
     color: white;
 }
@@ -33,6 +36,12 @@ body {
     input {
         font-family: inherit;
     }
+    
+    a {
+        color: white;
+        text-decoration: underline;
+        font-style: italic;
+    }
 }
 
 
@@ -53,37 +62,40 @@ button{
 	justify-content: center;
 }
 
-.thumb-up{
-	font-size: 3em;
+.thumb-up, .thumb-down{
+    font-size: 3em;
 	width: 3em;
 	height: 3em;
+    transition-duration: 100ms;
+    &:hover{
+        opacity: 0.8;
+        &:active{
+//            -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+//            -moz-box-shadow:    inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+//            box-shadow:         inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+}
+.thumb-up{
 	margin-right: 10%;
 }
-
-
 .thumb-down{
-	font-size: 3em;
-	width: 3em;
-	height: 3em;
 	margin-left: 10%;
-
 }
 
 .questionWrapper{
-    width: 68%;
-	height: 50%;
-	//background-color: green;
-
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	
-	margin: auto;
+    height: 100vh;
+    width: 100wv;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.questionBody{
+    width: 80vw;
     
-    .questionContent{
-        font-size: 4em;
+    .question{
+        font-size: 3em;
         @extend .bigbold;
     }
 }
@@ -92,8 +104,12 @@ button{
     position: fixed;
     bottom: 1em;
     left: 50%;
-    margin-left: -50px; /* margin is -0.5 * dimension */
-
+    transform: translateX(-50%);
+    
+    .submitButton{
+        padding: initial;
+        margin-left: 10px;
+    }
 }
 
 .info {
@@ -102,12 +118,87 @@ button{
     right: 0;
 }
 
+
 .menu {
     display: block;
-    background-color: rgba(0,0,0,0.2);
-    height: 100%;
-    width: 200px;
+    background-color: rgba(0,0,0,0.8);
     position: fixed;
-    top: 0;
-    right: 0;
+    width: 100vw; height: 100vh;
+    top: 0; right: 0;
+    
+    @media #{$tablet}{
+        width: $menu-max-width;
+    }
+}
+
+.caption {
+    position: fixed;
+    width: 100vw; height: 100vh;
+    top: 0; right: 0;
+    z-index: 2;
+     
+     &-inner{
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%,-80%);
+        width: 80%;
+        text-align: center;
+     }
+     
+    @media #{$tablet}{
+        width: $menu-max-width;
+        &-inner{width: 70%};
+    }
+}
+
+.menu {
+    opacity: 0;
+    visibility: hidden;
+    
+    &-enter,&-exit-done {
+        opacity: 0;
+        transform: translateY(-50%);
+        
+        @media #{$tablet}{
+            opacity: 0.6;
+            transform: translateX(80%);
+        }
+    }
+    
+    &-enter-active,&-enter-done,&-exit{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0%);
+        @media #{$tablet}{
+            transform: translateX(0%);
+        }
+    }
+
+    &-exit-done, &-enter-active {
+      transition: all 200ms ease-in;
+    }
+}
+
+.caption {
+    opacity: 0;
+    visibility: hidden;
+    
+    &-enter,&-exit-done {
+        opacity: 0;
+        @media #{$tablet}{
+            transform: translateX(80%);
+        }
+    }
+    
+    &-enter-active,&-enter-done,&-exit{
+        opacity: 1;
+        visibility: visible;
+        @media #{$tablet}{
+            transform: translateX(0%);
+        }
+    }
+
+    &-exit-done, &-enter-active {
+      transition: all 200ms ease-in;
+    }
 }

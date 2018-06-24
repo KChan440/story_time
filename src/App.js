@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Question from './Question/Question';
 import SubmitForm from './SubmitForm/SubmitForm';
+import Menu from './Menu/Menu'
 import { DB_CONFIG } from './Config/config';
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -27,10 +28,6 @@ class App extends Component {
     const randomIndex = Math.floor(Math.random() * colors.length);
     document.title = "tmayl.";
     document.body.style.backgroundColor = colors[randomIndex];;
-
-//    document.body.addEventListener("click", function(){
-//        window.location.reload();
-//    });
       
     const previousQuestions = this.state.questions;
     this.database.on('child_added', snap => {
@@ -83,34 +80,34 @@ class App extends Component {
     this.componentWillMount();
   }
 
-
+    componentDidMount(){
+        document.getElementById("questionBody").addEventListener("click", function(){
+            window.location.reload();
+        });        
+    }
 
   render() {
 
     return (
       <div className="questionWrapper">
-      <div className="questionBody">
-      {
-        <Question questionContent={this.state.currentQuestion.questionContent} 
-        questionId={this.state.currentQuestion.id} 
-        key={this.state.currentQuestion.id}/>
-      }
-      <div className="like-or-dislike">
-      <button className="thumb-down" onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
-      <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i>
-        </button>
-      </div>
-      </div>
-
-      <div className="submitForm">
-      <SubmitForm addQuestion={this.addQuestion}/>
-      </div>
-        
-        <div className="info" href="#"><button>i</button></div>
-        <div className="menu">
-            <h2>About</h2>
-            <p>TMAYL is an open source project created to help make meaningful conversations. We hope that together, we can facilitate meaningful connections with those around us.</p>
+          <div className="questionBody" id="questionBody">{
+            <Question questionContent={this.state.currentQuestion.questionContent} 
+            questionId={this.state.currentQuestion.id} 
+            key={this.state.currentQuestion.id}
+            />}
+              
+            <div className="like-or-dislike">
+              <button className="thumb-down" onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
+              <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i>
+                </button>
+              </div>
         </div>
+
+          <div className="submitForm">
+            <SubmitForm addQuestion={this.addQuestion}/>
+          </div>
+        
+            <div className="info" href="#"><Menu /></div>
       </div>
     );
   }
