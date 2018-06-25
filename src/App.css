@@ -32,7 +32,8 @@ body {
     font-style: italic;
     text-decoration: underline;
     font-family: "Ubuntu Mono", monospace;
-    font-size: 12px; }
+    font-size: 12px;
+    cursor: pointer !important; }
   body button {
     background: none;
     color: inherit;
