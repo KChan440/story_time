@@ -1,1 +1,15 @@
+@import './_global.scss';
 
+.questionWrapper{
+    height: 100vh;
+    width: 100wv;
+    @extend .flex-center;
+}
+.questionBody{
+    width: 80vw;
+    
+    .question{
+        font-size: 3em;
+        @extend .bigbold;
+    }
+}

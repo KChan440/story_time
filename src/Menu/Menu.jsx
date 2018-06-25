@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {CSSTransition} from 'react-transition-group';
-import '../App.css'
 import './Menu.css'
 
 class Menu extends Component{
@@ -18,7 +17,7 @@ class Menu extends Component{
         var isOpen = this.state.isOpen;
 
         return (<span>
-            <button className={"hamburger hamburger--squeeze "+(isOpen && "is-active")} id="menubutton" type="button" onClick={this.toggle}>
+            <button className={"hamburger hamburger--squeeze "+(isOpen && "is-active")} id="menuButton" type="button" onClick={this.toggle}>
               <span className="hamburger-box">
                 <span className="hamburger-inner"></span>
               </span>

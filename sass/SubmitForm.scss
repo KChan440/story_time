@@ -1,0 +1,114 @@
+@import './_global.scss';
+
+.submitForm{
+    position: fixed;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.submitModalOverlay{
+    @extend .flex-center;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh; width: 100vw;
+    background-color: rgba(0,0,0,0.2);
+    
+    .submitModal{
+//        box-sizing: border-box;
+        position: relative;
+        height: 50vh; width: 85vw;
+        border-radius: 2px;
+        background-color: $trans-black;
+        
+        @extend .flex-center;
+        flex-direction: column;
+        text-align: center;
+        
+        &:focus{
+            outline: none;
+        }
+        
+        @media #{$tablet}{
+            height: 50vh; width: 60vw;
+            border-radius: 4px;
+        }
+    }
+}
+
+//modal contents
+.submitModal{
+    #close{
+        position: absolute;
+        top: 0; right: 0;
+        margin: 10px;
+    }
+    
+    .questionInput{
+        box-sizing: border-box;
+        display: block;
+        height: 20vh; width: 70vw;
+        border-radius: 2px;
+        padding: 5px;
+        
+        @media #{$tablet}{
+            height: 25vh; width: 50vw;
+            padding: 10px;
+        }
+    }
+
+    .submitCaption{
+        padding-top: 5vh;
+        font-size: $font-sm;
+        max-width: 70vw;
+    }
+
+}
+
+.checkmark{
+//    font-size: 2em;
+    
+//    -webkit-animation: jump 1s ease 0s infinite normal ;
+//    animation: jump 1s ease 0s infinite normal ;
+}
+.checkmark { //animation
+    opacity: 0;
+//    animation: jump;
+    
+    &-enter-active{
+//        transform: translateY(0);
+//        transition: 10ms 15ms;
+    }
+    
+    &-enter-done{
+        opacity: 1;
+        
+        transition: all 150ms ease-in;
+//        transition-delay: 10ms;
+    }
+}
+
+
+@-webkit-keyframes, @keyframes jump {
+  0%{
+	transform: translateY(0);
+  }
+  20%{
+	transform: translateY(0);
+  }
+  40%{
+	transform: translateY(-30px);
+  }
+  50%{
+	transform: translateY(0);
+  }
+  60%{
+	transform: translateY(-15px);
+  }
+  80%{
+	transform: translateY(0);
+  }
+  100%{
+	transform: translateY(0);
+  }
+}

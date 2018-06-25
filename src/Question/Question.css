@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i");
+.flex-center, .questionWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.bigbold, .questionBody .question {
+  text-align: center;
+  color: white;
+  font-family: "Roboto", sans-serif; }
+
+.questionWrapper {
+  height: 100vh;
+  width: 100wv; }
+
+.questionBody {
+  width: 80vw; }
+  .questionBody .question {
+    font-size: 3em; }
+
+/*# sourceMappingURL=Question.css.map */

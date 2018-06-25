@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
 import Modal from 'react-modal';
+import {CSSTransition} from 'react-transition-group';
 import './SubmitForm.css';
-
-const modalCSS = {
-    content : {
-        height: '50vh',
-    }
-}
 
 class SubmitForm extends Component{
     constructor(props){
@@ -31,11 +26,10 @@ class SubmitForm extends Component{
 
     writeQuestion(){
         //check for null & empty string
-        console.log(this.state.newQuestionContent);
         if(this.state.newQuestionContent && this.state.newQuestionContent.trim()){
             //call method that sets questionContent for question to
             //value of input
-//            this.props.addQuestion(this.state.newQuestionContent);
+            this.props.addQuestion(this.state.newQuestionContent);
             //set back to empty string after add.
             this.setState({
                 status: "success",
@@ -47,12 +41,16 @@ class SubmitForm extends Component{
         }
     }
     
+    componentWillMount() {
+        Modal.setAppElement('body');
+    }
+    
     handleOpen(){
         this.setState( {isOpen : true});
     }
     handleClose(){
         this.setState({
-            newQuestionContent: null,
+            newQuestionContent: '',
             status: "open",
             isOpen:false,
         });
@@ -60,27 +58,37 @@ class SubmitForm extends Component{
     
     render(){
         var {newQuestionContent, isOpen, status} = this.state;
+        var succ = status==="success" ? true : false ;
         return( <div>
-            <a onClick={this.handleOpen}>Have a good submit</a>
+            <a onClick={this.handleOpen}>Submit Your Own</a>
             
             <Modal isOpen={isOpen} onRequestClose={this.handleClose} className="submitModal" overlayClassName="submitModalOverlay">
                 
                 <span id="close" onClick={this.handleClose}><i className="fas fa-times"></i></span>
 
-            {(status === "open" || status === "error") && (<div>
-                <textarea className="questionInput"
-                value={newQuestionContent}
-                placeholder="Submit your own question here..."
-                onChange={this.handleUserInput}/>
+                {(status === "open" || status === "error") && 
+                    <textarea className="questionInput"
+                    value={newQuestionContent}
+                    placeholder="Submit your own question here..."
+                    onChange={this.handleUserInput}/>}
                 
-                {(status === "open") && (<button className="submitButton"
+                {(status === "open") && (<button className="submitCaption"
             onClick={this.writeQuestion}>Submit</button>)}
-                    {(status === "error") && <p>There was an error submitting your question :(</p>}
-                </div>)}
+                
+                {(status === "error") && <span className="submitCaption">There was an error submitting your question <span style={{whitespace:"nowrap"}}>:(</span></span>}
             
-            {(status === "success") && (<div>
-                <p>Submission Succesfull!</p><a>submit another one</a>
-                </div>)}
+                <CSSTransition in={succ} timeout={150} classNames="checkmark" onEnter={()=>console.log("aaa")} exit={false} mountOnEnter unmountOnExit><span className="checkmark">
+                        <span><i className="fas fa-check-circle"></i></span>
+                        <p>Submission Succesfull!</p>
+                        <button className="submitCaption" onClick={()=> this.setState({status: "open" })}>submit another one</button>
+                    </span></CSSTransition>
+                
+                {/*(status === "success") && <div>
+                    
+                    <p>Submission Succesfull!</p>
+                    <button className="submitCaption" onClick={()=> this.setState({status: "open" })}>submit another one</button>
+                    </div>*/}
+                
                     
                     
                 </Modal>

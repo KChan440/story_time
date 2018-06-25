@@ -1,250 +1,73 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i');
-$sans-serif: 'Roboto', sans-serif;
-$mono-space:'Ubuntu Mono', monospace;
-$trans-black: rgba(0,0,0,0.8);
-
-$tablet: "screen and (min-width:425px) and (min-height:425px)";
-$menu-max-width : 20em;
-
-.flex-center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-//====
-
-.thumb-down, .thumb-up {
-    color: white;
-}
-
-.link{
-    text-decoration: underline;
-    font-family: $mono-space;
-    font: italic;
-}
-
-.bigbold{
-    text-align: center;
-    color: white;
-    font-family: $sans-serif;
-}
+@import './_global.scss';
 
 html{
   height: 100%;
 }
 
 body {
-  width: 100%;
-  min-height:100%;
-  background-attachment: fixed;
-  background-size: cover;
+    width: 100%;
+    min-height:100%;
+    background-attachment: fixed;
+    background-size: cover;
     font-family: $mono-space;
     color: white;
+    font-size: $font-p;
+    
+    h2{
+        font-family: $sans-serif;
+        font-size: 1.5em;
+        font-weight: initial;
+    }
     
     textarea {
-        font-family: inherit;
+        font: inherit;
     }
     
     a {
         color: white;
         text-decoration: underline;
         font-style: italic;
+        text-decoration: underline;
+        font-family: $mono-space;
+        font-size: $font-sm;
+    }
+    
+    button{
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        outline: inherit;
+        text-align: center;
+        
+        @extend a;
     }
 }
 
 
-button{
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    outline: inherit;
-    
-    text-align: center;
-    @extend .link;
-}
+
 
 .like-or-dislike{
 	display: flex;
 	justify-content: center;
-}
-
-.thumb-up, .thumb-down{
-    font-size: 3em;
-	width: 3em;
-	height: 3em;
-    transition-duration: 100ms;
-    &:hover{
-        opacity: 0.8;
-        &:active{
-//            -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
-//            -moz-box-shadow:    inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
-//            box-shadow:         inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
-        }
-    }
-
-}
-.thumb-up{
-	margin-right: 10%;
-}
-.thumb-down{
-	margin-left: 10%;
-}
-
-.questionWrapper{
-    height: 100vh;
-    width: 100wv;
-    @extend .flex-center;
-}
-.questionBody{
-    width: 80vw;
+    color: white;
     
-    .question{
+    .thumb-up, .thumb-down{
         font-size: 3em;
-        @extend .bigbold;
-    }
-}
-
-.submitForm{
-    position: fixed;
-    bottom: 1em;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.questionInput{
-    box-sizing: border-box;
-    display: block;
-    height: 20vh; width: 70vw;
-    border-radius: 2px;
-    padding: 5px;
-}
-
-.submitButton{
-    padding-top: 5vh;
-}
-    #close{
-        position: absolute;
-        top: 0; right: 0;
-        margin: 10px;
-    }
-
-.submitModalOverlay{
-    @extend .flex-center;
-    position: fixed;
-    top: 0; left: 0;
-    height: 100vh; width: 100vw;
-    
-    .submitModal{
-//        box-sizing: border-box;
-        position: relative;
-        height: 50vh; width: 85vw;
-        border-radius: 2px;
-        background-color: $trans-black;
-        
-        @extend .flex-center;
-        flex-direction: column;
-        
-        @media #{$tablet}{
-            height: 50vh; width: 60vw;
-        }
-        
-
-    }
-    
-
-}
-
-
-.info {
-    position: fixed;
-    top: 0;
-    right: 0;
-}
-
-
-.menu {
-    display: block;
-    background-color: $trans-black;
-    position: fixed;
-    width: 100vw; height: 100vh;
-    top: 0; right: 0;
-    
-    @media #{$tablet}{
-        width: $menu-max-width;
-    }
-}
-
-.caption {
-    position: fixed;
-    width: 100vw; height: 100vh;
-    top: 0; right: 0;
-    z-index: 2;
-     
-     &-inner{
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%,-80%);
-        width: 80%;
-        text-align: center;
-     }
-     
-    @media #{$tablet}{
-        width: $menu-max-width;
-        &-inner{width: 70%};
-    }
-}
-
-.menu {
-    opacity: 0;
-    visibility: hidden;
-    
-    &-enter,&-exit-done {
-        opacity: 0;
-        transform: translateY(-50%);
-        
-        @media #{$tablet}{
-            opacity: 0.6;
-            transform: translateX(80%);
+        width: 3em;
+        height: 3em;
+        transition-duration: 100ms;
+        &:hover{
+            opacity: 0.8;
+            &:active{
+//                -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+//                -moz-box-shadow:    inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+//                box-shadow:         inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+            }
         }
     }
-    
-    &-enter-active,&-enter-done,&-exit{
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0%);
-        @media #{$tablet}{
-            transform: translateX(0%);
-        }
-    }
-
-    &-exit-done, &-enter-active {
-      transition: all 200ms ease-in;
-    }
 }
 
-.caption {
-    opacity: 0;
-    visibility: hidden;
-    
-    &-enter,&-exit-done {
-        opacity: 0;
-        @media #{$tablet}{
-            transform: translateX(80%);
-        }
-    }
-    
-    &-enter-active,&-enter-done,&-exit{
-        opacity: 1;
-        visibility: visible;
-        @media #{$tablet}{
-            transform: translateX(0%);
-        }
-    }
 
-    &-exit-done, &-enter-active {
-      transition: all 200ms ease-in;
-    }
-}
+
