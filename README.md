@@ -13,3 +13,6 @@ run locally with npm start.
 - [x] color change on new question
 - [ ] prettier submission??
 - [ ] profile system
+
+## Useful
+     $  sass --watch sass/App.scss:src/App.css sassenu.scss:src/Menu/Menu.css sass/Question.scss:src/Question/Question.css sass/SubmitForm.scss:src/SubmitForm/SubmitForm.css

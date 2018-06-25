@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i');
+$sans-serif: 'Roboto', sans-serif;
+$mono-space:'Ubuntu Mono', monospace;
+
+$font-sm: 12px;
+$font-p: 14px;
+
+$trans-black: rgba(0,0,0,0.8);
+
+$tablet: "screen and (min-width:425px) and (min-height:425px)";
+$menu-max-width : 20em;
+
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigbold{
+    text-align: center;
+    color: white;
+    font-family: $sans-serif;
+}

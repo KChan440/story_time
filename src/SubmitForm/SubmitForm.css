@@ -1,3 +1,85 @@
-body {
-  color:black
-}
+@import url("https://fonts.googleapis.com/css?family=Roboto:900|Ubuntu+Mono:400,400i");
+.flex-center, .submitModalOverlay, .submitModalOverlay .submitModal {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.bigbold {
+  text-align: center;
+  color: white;
+  font-family: "Roboto", sans-serif; }
+
+.submitForm {
+  position: fixed;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.submitModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.2); }
+  .submitModalOverlay .submitModal {
+    position: relative;
+    height: 50vh;
+    width: 85vw;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-direction: column;
+    text-align: center; }
+    .submitModalOverlay .submitModal:focus {
+      outline: none; }
+    @media screen and (min-width: 425px) and (min-height: 425px) {
+      .submitModalOverlay .submitModal {
+        height: 50vh;
+        width: 60vw;
+        border-radius: 4px; } }
+
+.submitModal #close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px; }
+.submitModal .questionInput {
+  box-sizing: border-box;
+  display: block;
+  height: 20vh;
+  width: 70vw;
+  border-radius: 2px;
+  padding: 5px; }
+  @media screen and (min-width: 425px) and (min-height: 425px) {
+    .submitModal .questionInput {
+      height: 25vh;
+      width: 50vw;
+      padding: 10px; } }
+.submitModal .submitCaption {
+  padding-top: 5vh;
+  font-size: 12px;
+  max-width: 70vw; }
+
+.checkmark {
+  opacity: 0; }
+  .checkmark-enter-done {
+    opacity: 1;
+    transition: all 150ms ease-in; }
+
+@-webkit-keyframes , @keyframes jump {
+  0% {
+    transform: translateY(0); }
+  20% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(-30px); }
+  50% {
+    transform: translateY(0); }
+  60% {
+    transform: translateY(-15px); }
+  80% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(0); } }
+
+/*# sourceMappingURL=SubmitForm.css.map */
