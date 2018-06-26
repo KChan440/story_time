@@ -80,12 +80,6 @@ class App extends Component {
     this.componentWillMount();
   }
 
-    componentDidMount(){
-        document.getElementById("questionBody").addEventListener("click", function(){
-            window.location.reload();
-        });        
-    }
-
   render() {
 
     return (
