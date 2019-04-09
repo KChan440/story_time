@@ -74,7 +74,7 @@ class App extends Component {
             key={this.state.currentQuestion.id}
             />}
             
-            <button onClick={this.getQ}><h2><i className="fas fa-sync-alt" /></h2></button>
+            <button onClick={this.getQ}><i className="fas fa-sync-alt" id="refresh-button"/></button>
 
             <LikeOrDislike tempID={this.state.currentQuestion.id} key={"l"+this.state.currentQuestion.id}/>
 
@@ -121,11 +121,11 @@ class LikeOrDislike extends Component {
       tempFieldName = "/dislikes";
 
     if(tempFieldName){
-/*      const questionRef = firebase.database().ref("questions/" + this.props.tempID + tempFieldName);
+      const questionRef = firebase.database().ref("questions/" + this.props.tempID + tempFieldName);
       questionRef.transaction(function (current_value) {
         return (current_value || 0) + 1;
-      });*/
-      alert(tempFieldName);
+      });
+      // alert(tempFieldName);
     }
   }
 

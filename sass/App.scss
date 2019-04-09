@@ -12,6 +12,7 @@ body {
     font-family: $mono-space;
     color: white;
     font-size: $font-p;
+    text-align: center;
     
     h2{
         font-family: $sans-serif;
@@ -46,7 +47,13 @@ body {
     }
 }
 
+.question{
+    margin: 10% 0;
+}
 
+#refresh-button{
+    font-size: 48px;
+}
 
 
 .like-or-dislike{

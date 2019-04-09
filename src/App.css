@@ -23,6 +23,7 @@ body {
   font-family: "Ubuntu Mono", monospace;
   color: white;
   font-size: 14px;
+  text-align: center;
 }
 body h2 {
   font-family: "Roboto", sans-serif;
@@ -49,6 +50,14 @@ body button {
   cursor: pointer;
   outline: inherit;
   text-align: center;
+}
+
+.question {
+  margin: 10% 0;
+}
+
+#refresh-button {
+  font-size: 48px;
 }
 
 .like-or-dislike {
