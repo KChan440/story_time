@@ -11,9 +11,11 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+
+    this.colors = ["#D0021B","#F5A623","#7ED321","#50E3C2","#4A90E2","#9013FE"];
+
+    this.getQ = this.getQ.bind(this);
     this.addQuestion = this.addQuestion.bind(this);
-    this.likeQuestion = this.likeQuestion.bind(this);
-    this.dislikeQuestion = this.dislikeQuestion.bind(this);
     this.app = firebase.initializeApp(DB_CONFIG);
     this.database = this.app.database().ref().child('questions');
 
@@ -23,12 +25,11 @@ class App extends Component {
     }
   }
 
-  componentWillMount(){
-    const colors = ["#D0021B","#F5A623","#7ED321","#50E3C2","#4A90E2","#9013FE"];
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    document.title = "tmayl.";
-    document.body.style.backgroundColor = colors[randomIndex];;
-      
+  componentDidMount(){
+    this.getQ()
+  }
+
+  getQ(){
     const previousQuestions = this.state.questions;
     this.database.on('child_added', snap => {
         previousQuestions.push({
@@ -61,28 +62,10 @@ class App extends Component {
     });
   }
 
-  likeQuestion(question){
-    const tempID = this.state.currentQuestion.id; 
-    const questionRef = firebase.database().ref("questions/" + tempID + "/likes");
-    //console.log(questionRef);
-    questionRef.transaction(function (current_value) {
-      return (current_value || 0) + 1;
-    });
-    // this.componentWillMount();
-    alert("yee");
-  }
-
-  dislikeQuestion(question){
-    const tempID = this.state.currentQuestion.id;
-    const questionRef = firebase.database().ref("questions/" + tempID + "/dislikes");
-    questionRef.transaction(function (current_value) {
-      return (current_value || 0) + 1;
-    });
-    // this.componentWillMount();
-    alert("yee");
-  }
-
   render() {
+    const randomIndex = Math.floor(Math.random() * this.colors.length);
+    document.body.style.backgroundColor = this.colors[randomIndex];
+
     return (
       <div className="questionWrapper">
           <div className="questionBody" id="questionBody">{
@@ -91,9 +74,9 @@ class App extends Component {
             key={this.state.currentQuestion.id}
             />}
             
-            <div onClick={this.componentWillMount}>refresh</div>
+            <button onClick={this.getQ}><h2><i className="fas fa-sync-alt" /></h2></button>
 
-            <LikeOrDislike likeQuestion={this.likeQuestion} dislikeQuestion={this.dislikeQuestion} tempID={this.state.currentQuestion.id}/>
+            <LikeOrDislike tempID={this.state.currentQuestion.id} key={"l"+this.state.currentQuestion.id}/>
 
         </div>
 
@@ -112,7 +95,6 @@ class LikeOrDislike extends Component {
   constructor(props) {
     super(props);
 
-
     this.likeQuestion = this.likeQuestion.bind(this);
     this.dislikeQuestion = this.dislikeQuestion.bind(this);
 
@@ -124,15 +106,13 @@ class LikeOrDislike extends Component {
 
   likeQuestion(){
     this.setState({liked:true,disliked:false});
-    // this.props.likeQuestion;
   }
   dislikeQuestion(){
     this.setState({disliked:true,liked:false});
-    // this.props.dislikeQuestion;
   }
 
   componentWillUnmount(){
-    alert("saaaaave meeeee");
+    console.log("saaaaave meeeee");
 
     var tempFieldName = '';
     if(this.state.liked)
@@ -141,10 +121,11 @@ class LikeOrDislike extends Component {
       tempFieldName = "/dislikes";
 
     if(tempFieldName){
-      const questionRef = firebase.database().ref("questions/" + this.props.tempID + tempFieldName);
+/*      const questionRef = firebase.database().ref("questions/" + this.props.tempID + tempFieldName);
       questionRef.transaction(function (current_value) {
         return (current_value || 0) + 1;
-      });
+      });*/
+      alert(tempFieldName);
     }
   }
 
