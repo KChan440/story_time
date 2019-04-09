@@ -68,7 +68,8 @@ class App extends Component {
     questionRef.transaction(function (current_value) {
       return (current_value || 0) + 1;
     });
-    this.componentWillMount();
+    // this.componentWillMount();
+    alert("yee");
   }
 
   dislikeQuestion(question){
@@ -77,11 +78,11 @@ class App extends Component {
     questionRef.transaction(function (current_value) {
       return (current_value || 0) + 1;
     });
-    this.componentWillMount();
+    // this.componentWillMount();
+    alert("yee");
   }
 
   render() {
-
     return (
       <div className="questionWrapper">
           <div className="questionBody" id="questionBody">{
@@ -89,12 +90,11 @@ class App extends Component {
             questionId={this.state.currentQuestion.id} 
             key={this.state.currentQuestion.id}
             />}
-              
-            <div className="like-or-dislike">
-              <button className="thumb-down" onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
-              <button className="thumb-up" onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i>
-                </button>
-              </div>
+            
+            <div onClick={this.componentWillMount}>refresh</div>
+
+            <LikeOrDislike likeQuestion={this.likeQuestion} dislikeQuestion={this.dislikeQuestion} tempID={this.state.currentQuestion.id}/>
+
         </div>
 
           <div className="submitForm">
@@ -107,5 +107,58 @@ class App extends Component {
   }
 
 }
+
+class LikeOrDislike extends Component {
+  constructor(props) {
+    super(props);
+
+
+    this.likeQuestion = this.likeQuestion.bind(this);
+    this.dislikeQuestion = this.dislikeQuestion.bind(this);
+
+    this.state = {
+      liked: false,
+      disliked: false
+    }
+  }
+
+  likeQuestion(){
+    this.setState({liked:true,disliked:false});
+    // this.props.likeQuestion;
+  }
+  dislikeQuestion(){
+    this.setState({disliked:true,liked:false});
+    // this.props.dislikeQuestion;
+  }
+
+  componentWillUnmount(){
+    alert("saaaaave meeeee");
+
+    var tempFieldName = '';
+    if(this.state.liked)
+      tempFieldName = "/likes";
+    if(this.state.disliked)
+      tempFieldName = "/dislikes";
+
+    if(tempFieldName){
+      const questionRef = firebase.database().ref("questions/" + this.props.tempID + tempFieldName);
+      questionRef.transaction(function (current_value) {
+        return (current_value || 0) + 1;
+      });
+    }
+  }
+
+
+  render() {
+    return (
+      <div className="like-or-dislike">
+        How was this question?
+        <button className={"thumb-up"+(this.state.liked ? " active" : '')} onClick={this.likeQuestion}><i className="fas fa-thumbs-up"></i></button>
+        <button className={"thumb-down"+(this.state.disliked ? " active" : '')} onClick={this.dislikeQuestion}><i className="fas fa-thumbs-down"></i></button>
+      </div>
+      );
+  }
+}
+
 
 export default App;
