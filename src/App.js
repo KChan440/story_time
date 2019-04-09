@@ -58,7 +58,7 @@ class App extends Component {
   addQuestion(question){
     this.database.push().set({questionContent:question,
       likes: 0,
-      dislikes: 0 
+      dislikes: 0
     });
   }
 
@@ -68,13 +68,13 @@ class App extends Component {
 
     return (
       <div className="questionWrapper">
-          <div className="questionBody" id="questionBody">{
+          <div className="questionBody" id="questionBody">
+            <button onClick={this.getQ}><i className="fas fa-sync-alt" id="refresh-button"/></button>
+        {
             <Question questionContent={this.state.currentQuestion.questionContent} 
             questionId={this.state.currentQuestion.id} 
             key={this.state.currentQuestion.id}
             />}
-            
-            <button onClick={this.getQ}><i className="fas fa-sync-alt" id="refresh-button"/></button>
 
             <LikeOrDislike tempID={this.state.currentQuestion.id} key={"l"+this.state.currentQuestion.id}/>
 
@@ -83,7 +83,6 @@ class App extends Component {
           <div className="submitForm">
             <SubmitForm addQuestion={this.addQuestion}/>
           </div>
-        
             <div className="info" href="#"><Menu /></div>
       </div>
     );
@@ -112,8 +111,6 @@ class LikeOrDislike extends Component {
   }
 
   componentWillUnmount(){
-    console.log("saaaaave meeeee");
-
     var tempFieldName = '';
     if(this.state.liked)
       tempFieldName = "/likes";

@@ -53,7 +53,7 @@ body button {
 }
 
 .question {
-  margin: 10% 0;
+  margin: 5% 0;
 }
 
 #refresh-button {
@@ -65,7 +65,6 @@ body button {
   justify-content: center;
   color: white;
   align-items: center;
-  margin: 10px;
 }
 .like-or-dislike .thumb-up, .like-or-dislike .thumb-down {
   font-size: 24px;
