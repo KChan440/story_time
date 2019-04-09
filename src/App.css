@@ -2,15 +2,18 @@
 .flex-center {
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .bigbold {
   text-align: center;
   color: white;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+}
 
 html {
-  height: 100%; }
+  height: 100%;
+}
 
 body {
   width: 100%;
@@ -19,40 +22,62 @@ body {
   background-size: cover;
   font-family: "Ubuntu Mono", monospace;
   color: white;
-  font-size: 14px; }
-  body h2 {
-    font-family: "Roboto", sans-serif;
-    font-size: 1.5em;
-    font-weight: initial; }
-  body textarea {
-    font: inherit; }
-  body a, body button {
-    color: white;
-    text-decoration: underline;
-    font-style: italic;
-    text-decoration: underline;
-    font-family: "Ubuntu Mono", monospace;
-    font-size: 12px;
-    cursor: pointer !important; }
-  body button {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline: inherit;
-    text-align: center; }
+  font-size: 14px;
+  text-align: center;
+}
+body h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
+  font-weight: initial;
+}
+body textarea {
+  font: inherit;
+}
+body a, body button {
+  color: white;
+  text-decoration: underline;
+  font-style: italic;
+  text-decoration: underline;
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 12px;
+  cursor: pointer !important;
+}
+body button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
+  text-align: center;
+}
+
+.question {
+  margin: 5% 0;
+}
+
+#refresh-button {
+  font-size: 48px;
+}
 
 .like-or-dislike {
   display: flex;
   justify-content: center;
-  color: white; }
-  .like-or-dislike .thumb-up, .like-or-dislike .thumb-down {
-    font-size: 3em;
-    width: 3em;
-    height: 3em;
-    transition-duration: 100ms; }
-    .like-or-dislike .thumb-up:hover, .like-or-dislike .thumb-down:hover {
-      opacity: 0.8; }
+  color: white;
+  align-items: center;
+}
+.like-or-dislike .thumb-up, .like-or-dislike .thumb-down {
+  font-size: 24px;
+  width: 3em;
+  height: 3em;
+  opacity: 0.77;
+  transition-duration: 100ms;
+}
+.like-or-dislike .thumb-up:hover, .like-or-dislike .thumb-down:hover {
+  opacity: 1;
+}
+.like-or-dislike .thumb-up.active, .like-or-dislike .thumb-down.active {
+  opacity: 1;
+}
 
 /*# sourceMappingURL=App.css.map */

@@ -20,7 +20,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-src/Config/config.js
+src/Config/
 
 .sass-cache*
 sass/.sasas-cache*

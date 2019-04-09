@@ -12,6 +12,7 @@ body {
     font-family: $mono-space;
     color: white;
     font-size: $font-p;
+    text-align: center;
     
     h2{
         font-family: $sans-serif;
@@ -46,26 +47,34 @@ body {
     }
 }
 
+.question{
+    margin: 10% 0;
+}
 
+#refresh-button{
+    font-size: 48px;
+}
 
 
 .like-or-dislike{
 	display: flex;
 	justify-content: center;
     color: white;
+    align-items: center;
+    margin: 10px;
     
     .thumb-up, .thumb-down{
-        font-size: 3em;
+        font-size: 24px;
         width: 3em;
         height: 3em;
+        opacity: 0.77;
         transition-duration: 100ms;
         &:hover{
-            opacity: 0.8;
-            &:active{
-//                -webkit-box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
-//                -moz-box-shadow:    inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
-//                box-shadow:         inset 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
-            }
+            opacity: 1;
+        }
+
+        &.active{
+            opacity: 1;
         }
     }
 }
